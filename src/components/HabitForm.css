@@ -1,0 +1,22 @@
+.habitform__container {
+  margin-top: 3rem;
+  display: grid;
+  place-items: center;
+  /* width: 30vw; */
+}
+
+.habit__input {
+  width: 30vw;
+  height: 30px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: larger;
+}
+.habit__submit {
+  margin-top: 15px;
+  width: 10vw;
+  height: 35px;
+  border-radius: 5px;
+  background-color: rgb(57, 138, 245);
+  cursor: pointer;
+}

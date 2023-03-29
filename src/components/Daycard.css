@@ -1,0 +1,18 @@
+.daycard_container {
+  width: 130px;
+  height: 130px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  margin-right: 5px;
+}
+.card__dayStatus {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-around;
+}

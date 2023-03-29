@@ -1,0 +1,27 @@
+.habitcard__container {
+  width: 90vw;
+  height: 150px;
+  border: 2px solid cyan;
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.habitcard__title {
+  margin-left: 2rem;
+}
+.habitcard__title,
+.habitcard__result {
+  flex: 1;
+}
+.habitcard__icons {
+  width: 100px;
+  /* flex: ; */
+  display: flex;
+  justify-content: space-around;
+}
+
+.habitcard__icons {
+  margin-right: 10px;
+}

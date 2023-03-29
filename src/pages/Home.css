@@ -1,0 +1,11 @@
+.home {
+  width: 100vw;
+  margin-top: 50px;
+  padding: 10px;
+}
+.habitcards__container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  align-items: center;
+}
