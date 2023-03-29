@@ -18,7 +18,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/habit" element={<Habit />} />
+          <Route path="/habit/:id" element={<Habit />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Router>
