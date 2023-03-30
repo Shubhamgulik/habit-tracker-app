@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { useEffect, useState } from "react";
 // Importing components
 import { Navbar } from "./";
 // Importing Pages
@@ -12,13 +12,23 @@ const Error404 = () => {
 };
 
 function App() {
+  // const word = "Hello";
+
+  const [habits, setHabits] = useState([]);
+
   return (
     <div className="App">
       <Navbar />
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/habit/:id" element={<Habit />} />
+          <Route
+            path="/"
+            element={<Home habits={habits} setHabits={setHabits} />}
+          />
+          <Route
+            path="/habit/:id"
+            element={<Habit habits={habits} setHabits={setHabits} />}
+          />
           <Route path="*" element={<Home />} />
         </Routes>
       </Router>
