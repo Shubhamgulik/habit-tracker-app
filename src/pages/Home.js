@@ -5,10 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectHabitsList } from "../features/habitsSlice";
 function Home({ setHabits }) {
   const dispatch = useDispatch();
-  console.log("Habits from redux: ", useSelector(selectHabitsList));
+
   const habits = useSelector(selectHabitsList);
 
-  console.log("Habit : ", habits);
   return (
     <div className="home">
       <HabitForm />

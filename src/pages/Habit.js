@@ -22,7 +22,6 @@ function Habit() {
 
   useEffect(() => {
     const index = habits.findIndex((habit) => habit.id == id);
-    console.log(index);
     setCurrentHabit(habits[index]);
   }, []);
 
@@ -47,7 +46,7 @@ function Habit() {
     date.setDate(date.getDate() - 1);
     week.push(weekDay);
   }
-  console.log("Week status : ", currentHabit.weekStatus);
+  // console.log("Week status : ", currentHabit.weekStatus);
 
   return (
     <div className="habit">
@@ -56,6 +55,7 @@ function Habit() {
       <div className="daycards__container">
         {week?.map((item, index) => (
           <Daycard
+            habit={currentHabit}
             day={item}
             index={index}
             weekStatus={currentHabit.weekStatus}

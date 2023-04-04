@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Daycard.css";
 
+import { updateStatus } from "../features/habitsSlice";
+import { useDispatch } from "react-redux";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
@@ -9,36 +11,56 @@ import CancelIcon from "@mui/icons-material/Cancel";
 
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
-function Daycard({ day, index, weekStatus }) {
-  console.log("Index ; ", index);
+function Daycard({ habit, day, index, weekStatus }) {
   // console.log("Status :", weekStatus[index]);
-  let status;
-  if (weekStatus) {
-    status = weekStatus[index];
+
+  const [_weekStatus, setWeekStatus] = useState(weekStatus);
+  const [status, setStatus] = useState("");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (weekStatus) {
+      setStatus(weekStatus[index]);
+    }
+  }, [weekStatus]);
+
+  // Update status
+  function changeStatus(_status) {
+    console.log("Changing status: ", _status);
+    let newArray = _weekStatus?.map((i) => i);
+    if (newArray) newArray[index] = _status;
+    setStatus(_status);
+    dispatch(
+      updateStatus({
+        ...habit,
+        weekStatus: _weekStatus,
+      })
+    );
   }
+
   // console.log("Status : ", status);
   function checkStatusAndRender(status) {
     if (status === "done") {
       return (
         <>
           <CheckCircleIcon />
-          <CancelOutlinedIcon />
-          <RemoveCircleOutlineIcon />
+          <CancelOutlinedIcon onClick={() => changeStatus("notDone")} />
+          <RemoveCircleOutlineIcon onClick={() => changeStatus("none")} />
         </>
       );
     } else if (status === "notDone") {
       return (
         <>
-          <CheckCircleOutlineIcon />
+          <CheckCircleOutlineIcon onClick={() => changeStatus("done")} />
           <CancelIcon />
-          <RemoveCircleOutlineIcon />
+          <RemoveCircleOutlineIcon onClick={() => changeStatus("none")} />
         </>
       );
     } else {
       return (
         <>
-          <CheckCircleOutlineIcon />
-          <CancelOutlinedIcon />
+          <CheckCircleOutlineIcon onClick={() => changeStatus("done")} />
+          <CancelOutlinedIcon onClick={() => changeStatus("notDone")} />
           <RemoveCircleIcon />
         </>
       );

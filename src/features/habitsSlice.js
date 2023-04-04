@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 const initialState = {
   habitsList: [],
 };
@@ -12,13 +12,13 @@ const habitsSlice = createSlice({
   initialState,
   reducers: {
     addHabit: (state, action) => {
-      console.log("Payload: ", action.type);
+      // console.log("A: ", action.type);
       const id = Math.random() * 1000;
       const weekStatus = [
         "none",
         "none",
         "none",
-        "none",
+        "done",
         "none",
         "none",
         "none",
@@ -33,17 +33,25 @@ const habitsSlice = createSlice({
       state.habitsList = [habit, ...state.habitsList];
     },
     deleteHabit: (state, action) => {
-      console.log("id", action.payload);
       const newList = state.habitsList.filter(
         (habit) => habit.id !== action.payload
       );
       console.log("new list ", newList);
       state.habitsList = [...newList];
     },
+    updateStatus: (state, action) => {
+      let index = state.habitsList.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      let newArray = [...state.habitsList];
+      newArray[index] = action.payload;
+      console.log("New array", newArray);
+      // state.habitsList = [...state.habitsList, action.payload];
+    },
   },
 });
 
-export const { addHabit, deleteHabit } = habitsSlice.actions;
+export const { addHabit, deleteHabit, updateStatus } = habitsSlice.actions;
 
 export const selectHabitsList = (state) => state.habits.habitsList;
 

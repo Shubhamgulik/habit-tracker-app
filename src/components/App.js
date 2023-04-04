@@ -18,8 +18,8 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
       <Router>
+        <Navbar />
         <Routes>
           <Route
             path="/"
