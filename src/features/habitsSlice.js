@@ -18,7 +18,7 @@ const habitsSlice = createSlice({
         "none",
         "none",
         "none",
-        "done",
+        "none",
         "none",
         "none",
         "none",
@@ -41,12 +41,16 @@ const habitsSlice = createSlice({
     },
     updateStatus: (state, action) => {
       let index = state.habitsList.findIndex(
-        (item) => item.id === action.payload.id
+        (item) => item.id === action.payload.habit.id
       );
-      let newArray = [...state.habitsList];
-      newArray[index] = action.payload;
-      console.log("New array", newArray);
+
+      // let newArray = [...state.habitsList];
+      // newArray[index] = action.payload;
       // state.habitsList = [...state.habitsList, action.payload];
+      state.habitsList[index] = {
+        ...action.payload.habit,
+        weekStatus: action.payload.newArray,
+      };
     },
   },
 });

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Daycard.css";
 
-import { updateStatus } from "../features/habitsSlice";
+// import { updateStatus } from "../features/habitsSlice";
 import { useDispatch } from "react-redux";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -11,7 +11,7 @@ import CancelIcon from "@mui/icons-material/Cancel";
 
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
-function Daycard({ habit, day, index, weekStatus }) {
+function Daycard({ habit, day, index, weekStatus, updateStatus }) {
   // console.log("Status :", weekStatus[index]);
 
   const [_weekStatus, setWeekStatus] = useState(weekStatus);
@@ -22,23 +22,20 @@ function Daycard({ habit, day, index, weekStatus }) {
     if (weekStatus) {
       setStatus(weekStatus[index]);
     }
+    console.log("Habit : ", habit);
   }, [weekStatus]);
 
   // Update status
   function changeStatus(_status) {
+    console.log("Habit : ", habit);
     console.log("Changing status: ", _status);
-    let newArray = _weekStatus?.map((i) => i);
-    if (newArray) newArray[index] = _status;
     setStatus(_status);
-    dispatch(
-      updateStatus({
-        ...habit,
-        weekStatus: _weekStatus,
-      })
-    );
+    let newArray = weekStatus.slice();
+    newArray.splice(index, 1, _status);
+    console.log("New Array: ", newArray);
+    updateStatus(habit, newArray);
   }
 
-  // console.log("Status : ", status);
   function checkStatusAndRender(status) {
     if (status === "done") {
       return (
@@ -69,7 +66,7 @@ function Daycard({ habit, day, index, weekStatus }) {
   return (
     <div className="daycard_container">
       {/* <h1>{weekStatus[Number(index)]}</h1> */}
-      {status}
+      {/* {status} */}
       <h3>{day.date}</h3>
       <h4>{day.day}</h4>
       <div className="card__dayStatus">{checkStatusAndRender(status)}</div>

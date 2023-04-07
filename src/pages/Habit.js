@@ -4,13 +4,13 @@ import "./Habit.css";
 import Daycard from "../components/Daycard";
 import { selectHabitsList, addHabit } from "../features/habitsSlice";
 import { useSelector, useDispatch } from "react-redux";
-
+import { updateStatus } from "../features/habitsSlice";
 function getFormattedDate(date) {
   let year = date.getFullYear();
   let month = (1 + date.getMonth()).toString().padStart(2, "0");
   let day = date.getDate().toString().padStart(2, "0");
 
-  return month + "/" + day + "/" + year;
+  return day + "/" + month + "/" + year;
 }
 
 function Habit() {
@@ -19,11 +19,12 @@ function Habit() {
   const params = useParams();
   console.log("Params : ", params.id);
   const id = params.id;
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const index = habits.findIndex((habit) => habit.id == id);
     setCurrentHabit(habits[index]);
-  }, []);
+  }, [habits]);
 
   const week = [];
   const days = [
@@ -47,10 +48,17 @@ function Habit() {
     week.push(weekDay);
   }
   // console.log("Week status : ", currentHabit.weekStatus);
-
+  const updateStatuss = (habit, newArray) => {
+    dispatch(
+      updateStatus({
+        habit,
+        newArray,
+      })
+    );
+  };
   return (
     <div className="habit">
-      <h1>Workout</h1>
+      <h1>{currentHabit.title}</h1>
 
       <div className="daycards__container">
         {week?.map((item, index) => (
@@ -59,6 +67,7 @@ function Habit() {
             day={item}
             index={index}
             weekStatus={currentHabit.weekStatus}
+            updateStatus={updateStatuss}
           />
         ))}
       </div>
