@@ -65,8 +65,6 @@ function Daycard({ habit, day, index, weekStatus, updateStatus }) {
   }
   return (
     <div className="daycard_container">
-      {/* <h1>{weekStatus[Number(index)]}</h1> */}
-      {/* {status} */}
       <h3>{day.date}</h3>
       <h4>{day.day}</h4>
       <div className="card__dayStatus">{checkStatusAndRender(status)}</div>

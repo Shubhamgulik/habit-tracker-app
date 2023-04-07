@@ -47,7 +47,7 @@ function Habit() {
     date.setDate(date.getDate() - 1);
     week.push(weekDay);
   }
-  // console.log("Week status : ", currentHabit.weekStatus);
+
   const updateStatuss = (habit, newArray) => {
     dispatch(
       updateStatus({

@@ -8,8 +8,14 @@
   align-items: center;
   padding: 10px;
   margin-right: 5px;
+  border-radius: 10px;
+  background-color: aqua;
+}
+.daycard_container:hover {
+  background-color: aquamarine;
 }
 .card__dayStatus {
+  cursor: pointer;
   width: 100%;
   display: flex;
   flex-direction: row;

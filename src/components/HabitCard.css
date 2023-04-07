@@ -1,13 +1,22 @@
 .habitcard__container {
   width: 90vw;
   height: 150px;
-  border: 2px solid cyan;
+  color: rgb(132, 226, 89);
+  border: 2px solid whitesmoke;
   margin-bottom: 10px;
-
+  background-color: rgb(57, 119, 201);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: 0.2s linear;
+  border-radius: 12px;
 }
+
+.habitcard__container:hover {
+  background-color: rgb(16, 245, 245);
+  color: black;
+}
+
 .habitcard__title {
   margin-left: 2rem;
 }
@@ -24,4 +33,7 @@
 
 .habitcard__icons {
   margin-right: 10px;
+}
+.delete__icon {
+  cursor: pointer;
 }

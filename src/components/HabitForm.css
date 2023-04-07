@@ -2,9 +2,15 @@
   margin-top: 3rem;
   display: grid;
   place-items: center;
+  /* justify-content: center;
+  align-items: center;
+  flex-direction: column; */
   /* width: 30vw; */
 }
-
+.habitform__container > form {
+  display: flex;
+  flex-direction: column;
+}
 .habit__input {
   width: 30vw;
   height: 30px;
@@ -13,7 +19,9 @@
   font-size: larger;
 }
 .habit__submit {
+  margin: auto auto;
   margin-top: 15px;
+
   width: 10vw;
   height: 35px;
   border-radius: 5px;

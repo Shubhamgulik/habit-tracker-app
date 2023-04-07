@@ -2,11 +2,7 @@ import { createSlice, current } from "@reduxjs/toolkit";
 const initialState = {
   habitsList: [],
 };
-// {
-//     title: "workout",
-//     weekStatus: ["none", "none", "none", "none", "none", "none", "none"],
-//     completed: 0,
-//   }
+
 const habitsSlice = createSlice({
   name: "habits",
   initialState,
@@ -43,10 +39,6 @@ const habitsSlice = createSlice({
       let index = state.habitsList.findIndex(
         (item) => item.id === action.payload.habit.id
       );
-
-      // let newArray = [...state.habitsList];
-      // newArray[index] = action.payload;
-      // state.habitsList = [...state.habitsList, action.payload];
       state.habitsList[index] = {
         ...action.payload.habit,
         weekStatus: action.payload.newArray,
