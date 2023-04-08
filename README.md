@@ -1,3 +1,23 @@
+
+### Home Page
+![image](https://user-images.githubusercontent.com/42814032/230706476-d546107c-4d3c-4e1c-8ffe-4db89e2359c4.png)
+
+### Habit with status of previous 6 days
+![image](https://user-images.githubusercontent.com/42814032/230706504-7f797996-aff5-41e5-b12e-e1bff0e78a98.png)
+
+### 3 Status : Done, NotDone, None
+![image](https://user-images.githubusercontent.com/42814032/230706542-c48a9cdc-edd7-45c2-8c79-9a98763ecbd5.png)
+
+### Updating Counter :
+![image](https://user-images.githubusercontent.com/42814032/230706579-0a9c97e7-fd76-4548-be88-f0e6ebda634f.png)
+
+## Folder Structure: 
+![image](https://user-images.githubusercontent.com/42814032/230706604-af37b123-4e1d-4e88-9892-7016b7c0eac4.png)
+
+![image](https://user-images.githubusercontent.com/42814032/230706641-948a2658-4db3-4dca-8b95-08e16b660d3e.png)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
