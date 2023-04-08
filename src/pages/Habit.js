@@ -5,6 +5,8 @@ import Daycard from "../components/Daycard";
 import { selectHabitsList, addHabit } from "../features/habitsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { updateStatus } from "../features/habitsSlice";
+
+// Method to get formatted date DD/MM/YYYY
 function getFormattedDate(date) {
   let year = date.getFullYear();
   let month = (1 + date.getMonth()).toString().padStart(2, "0");
@@ -13,19 +15,22 @@ function getFormattedDate(date) {
   return day + "/" + month + "/" + year;
 }
 
+// Habit Component
 function Habit() {
   const [currentHabit, setCurrentHabit] = useState({});
   const habits = useSelector(selectHabitsList);
   const params = useParams();
-  console.log("Params : ", params.id);
   const id = params.id;
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch(); // To dispatching actions
+
+  // This will run on every change in habits list
   useEffect(() => {
     const index = habits.findIndex((habit) => habit.id == id);
     setCurrentHabit(habits[index]);
   }, [habits]);
 
+  // Getting date and day
   const week = [];
   const days = [
     "Sunday", // 0
@@ -48,6 +53,7 @@ function Habit() {
     week.push(weekDay);
   }
 
+  // Update status of the day card
   const updateStatuss = (habit, newArray) => {
     dispatch(
       updateStatus({
@@ -68,6 +74,7 @@ function Habit() {
             index={index}
             weekStatus={currentHabit.weekStatus}
             updateStatus={updateStatuss}
+            key={index}
           />
         ))}
       </div>

@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-// import todoReducer from "../features/todoSlice";
+
+// Importing Habits Reducer
 import habitsReducer from "../features/habitsSlice";
-import thunk from "redux-thunk";
+// Importing logger to log actions
 import logger from "redux-logger";
+
 export const store = configureStore({
   reducer: {
     habits: habitsReducer,
   },
-  middleware: [logger, thunk],
+  middleware: [logger],
 });

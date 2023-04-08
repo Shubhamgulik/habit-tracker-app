@@ -1,3 +1,4 @@
+/* Container of the Day (Single) */
 .daycard_container {
   width: 130px;
   height: 130px;
@@ -11,9 +12,11 @@
   border-radius: 10px;
   background-color: aqua;
 }
+/* Hovering effects */
 .daycard_container:hover {
   background-color: aquamarine;
 }
+/* Icons */
 .card__dayStatus {
   cursor: pointer;
   width: 100%;

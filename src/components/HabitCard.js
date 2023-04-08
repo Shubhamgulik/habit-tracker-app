@@ -6,10 +6,12 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import { deleteHabit } from "../features/habitsSlice";
 import { useDispatch, useSelector } from "react-redux";
 
+// Single Habit Card
 function HabitCard({ habit }) {
   const dispatch = useDispatch();
-
+  // Count state to store no of habits achieved
   const [count, setCount] = useState(0);
+
   useEffect(() => {
     const _count = habit?.weekStatus?.filter(
       (status) => status === "done"
@@ -18,8 +20,8 @@ function HabitCard({ habit }) {
     setCount(_count);
   }, [habit]);
 
+  // Delete a habit
   const handleDelete = () => {
-    console.log("Deleted");
     dispatch(deleteHabit(habit.id));
   };
   return (

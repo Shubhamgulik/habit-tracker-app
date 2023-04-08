@@ -1,3 +1,4 @@
+/* Habit card container */
 .habitcard__container {
   width: 90vw;
   height: 150px;
@@ -11,12 +12,13 @@
   transition: 0.2s linear;
   border-radius: 12px;
 }
-
+/* Hovering effects */
 .habitcard__container:hover {
   background-color: rgb(16, 245, 245);
   color: black;
 }
 
+/* Title of the habit */
 .habitcard__title {
   margin-left: 2rem;
 }
@@ -26,7 +28,6 @@
 }
 .habitcard__icons {
   width: 100px;
-  /* flex: ; */
   display: flex;
   justify-content: space-around;
 }

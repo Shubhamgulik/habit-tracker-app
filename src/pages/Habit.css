@@ -1,3 +1,4 @@
+/* Habit page container */
 .habit {
   width: 100vw;
   margin-top: 50px;
@@ -6,11 +7,11 @@
   flex-direction: column;
   align-items: center;
 }
-
+/* Title of the habit age */
 .habit > h1 {
   margin-bottom: 3rem;
 }
-
+/* Multiple daycard containers */
 .daycards__container {
   display: flex;
   justify-content: space-around;

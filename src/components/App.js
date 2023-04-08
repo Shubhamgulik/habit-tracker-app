@@ -1,4 +1,3 @@
-import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 // Importing components
@@ -11,24 +10,20 @@ const Error404 = () => {
   return <h1>Error404</h1>;
 };
 
+// App Component
 function App() {
-  // const word = "Hello";
-
-  const [habits, setHabits] = useState([]);
-
   return (
     <div className="App">
       <Router>
         <Navbar />
         <Routes>
-          <Route
-            path="/"
-            element={<Home habits={habits} setHabits={setHabits} />}
-          />
-          <Route
-            path="/habit/:id"
-            element={<Habit habits={habits} setHabits={setHabits} />}
-          />
+          {/* Home page */}
+          <Route path="/" element={<Home />} />
+
+          {/* Selected Habit page */}
+          <Route path="/habit/:id" element={<Habit />} />
+
+          {/* Redirect to home page on wrong URL */}
           <Route path="*" element={<Home />} />
         </Routes>
       </Router>

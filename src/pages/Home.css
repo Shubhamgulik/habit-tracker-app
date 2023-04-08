@@ -1,8 +1,11 @@
+/* Home container */
 .home {
   width: 100vw;
   margin-top: 50px;
   padding: 10px;
 }
+
+/* Habits cards container */
 .habitcards__container {
   display: flex;
   flex-direction: column;

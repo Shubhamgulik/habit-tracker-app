@@ -1,41 +1,44 @@
 import React, { useEffect, useState } from "react";
 import "./Daycard.css";
 
-// import { updateStatus } from "../features/habitsSlice";
 import { useDispatch } from "react-redux";
+// Done status Icons
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
+// Not Done Status Icons
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import CancelIcon from "@mui/icons-material/Cancel";
 
+// None Status Icons
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
-function Daycard({ habit, day, index, weekStatus, updateStatus }) {
-  // console.log("Status :", weekStatus[index]);
 
+// Single day card with necessary info
+function Daycard({ habit, day, index, weekStatus, updateStatus }) {
   const [_weekStatus, setWeekStatus] = useState(weekStatus);
   const [status, setStatus] = useState("");
+
+  // Dispatch for dispatching action
   const dispatch = useDispatch();
 
+  // To handle sideeffects
   useEffect(() => {
     if (weekStatus) {
       setStatus(weekStatus[index]);
     }
-    console.log("Habit : ", habit);
   }, [weekStatus]);
 
   // Update status
   function changeStatus(_status) {
-    console.log("Habit : ", habit);
-    console.log("Changing status: ", _status);
     setStatus(_status);
     let newArray = weekStatus.slice();
     newArray.splice(index, 1, _status);
-    console.log("New Array: ", newArray);
+
     updateStatus(habit, newArray);
   }
 
+  // Method will check status and return correct icon
   function checkStatusAndRender(status) {
     if (status === "done") {
       return (
